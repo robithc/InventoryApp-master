@@ -9,15 +9,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.ro221d.inventoryapp.data.BookContract;
-import com.example.ro221d.inventoryapp.data.BookDbHelper;
 import com.example.ro221d.inventoryapp.data.BookContract.BookEntry;
-
-
-import com.example.ro221d.inventoryapp.data.BookContract;
 import com.example.ro221d.inventoryapp.data.BookDbHelper;
 
 public class EditorActivity extends AppCompatActivity {
@@ -27,22 +21,15 @@ public class EditorActivity extends AppCompatActivity {
     private EditText mBookSupplierNameEditText;
     private EditText mBookSupplierNumberEditText;
 
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_editor);
-//        TextView bookTitle = findViewById(R.id.book_name_text_view);
-//        TextView bookPrice = findViewById(R.id.book_price_text_view);
-//        TextView bookQuantity = findViewById(R.id.book_quantity_text_view);
-//        TextView supplierName = findViewById(R.id.book_supplier_name_text_view);
-//        TextView supplierNumber = findViewById(R.id.book_supplier_number_text_view);
         mBookNameEditText = findViewById(R.id.book_name_edit_text);
         mBookPriceEditText = findViewById(R.id.book_price_edit_text);
         mBookQuantityEditText = findViewById(R.id.book_quantity_edit_text);
         mBookSupplierNameEditText = findViewById(R.id.book_supplier_name_edit_text);
         mBookSupplierNumberEditText = findViewById(R.id.book_supplier_number_edit_text);
-
     }
 
     private void insertBook() {
@@ -80,19 +67,17 @@ public class EditorActivity extends AppCompatActivity {
             // Respond to a click on the "Save" menu option
             case R.id.action_save:
                 // Save book to database
-
                 insertBook();
                 // Exit activity
                 finish();
                 return true;
             // Respond to a click on the "Delete" menu option
             case R.id.action_delete:
-
                 // Do nothing for now
                 return true;
             // Respond to a click on the "Up" arrow button in the app bar
             case android.R.id.home:
-                // Navigate back to parent activity (CatalogActivity)
+                // Navigate back to parent activity (MainActivity)
                 NavUtils.navigateUpFromSameTask(this);
                 return true;
         }

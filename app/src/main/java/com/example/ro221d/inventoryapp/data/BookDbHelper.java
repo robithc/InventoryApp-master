@@ -7,16 +7,19 @@ import android.util.Log;
 
 import com.example.ro221d.inventoryapp.data.BookContract.BookEntry;
 
-public  class BookDbHelper extends SQLiteOpenHelper {
+public class BookDbHelper extends SQLiteOpenHelper {
     public static final String LOG_TAG = BookDbHelper.class.getSimpleName();
 
-    /** Name of the database file */
+    /**
+     * Name of the database file
+     */
     private static final String DATABASE_NAME = "library.db";
 
     /**
      * Database version. If you change the database schema, you must increment the database version.
      */
     private static final int DATABASE_VERSION = 1;
+
     /**
      * Constructs a new instance of {@link BookDbHelper}.
      *
@@ -39,7 +42,7 @@ public  class BookDbHelper extends SQLiteOpenHelper {
 
         db.execSQL(SQL_CREATE_PRODUCT_TABLE);
 
-        Log.d("successfully message" , "created table of db");
+        Log.d("successfully message", "created table of db");
     }
 
     @Override

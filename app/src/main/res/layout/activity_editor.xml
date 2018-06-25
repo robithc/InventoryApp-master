@@ -6,14 +6,13 @@
     android:layout_margin="8dp"
     android:orientation="vertical">
 
-
     <TextView
-        android:text="@string/enter_book_details"
         android:id="@+id/add_new_book_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:paddingBottom="8dp"
+        android:text="@string/enter_book_details"
         tools:text="add new book" />
 
     <LinearLayout
@@ -22,12 +21,12 @@
         android:orientation="horizontal">
 
         <TextView
-            android:text="@string/title"
             android:id="@+id/book_name_text_view"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
+            android:text="@string/title"
             tools:text="title" />
 
         <EditText
@@ -35,6 +34,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:hint="@string/insert"
             android:inputType="text" />
     </LinearLayout>
 
@@ -44,12 +44,12 @@
         android:orientation="horizontal">
 
         <TextView
-            android:text="@string/price"
             android:id="@+id/book_price_text_view"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
+            android:text="@string/price"
             tools:text="price" />
 
         <EditText
@@ -57,6 +57,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:hint="@string/insert"
             android:inputType="numberDecimal" />
     </LinearLayout>
 
@@ -66,12 +67,12 @@
         android:orientation="horizontal">
 
         <TextView
-            android:text="@string/quantity"
             android:id="@+id/book_quantity_text_view"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
+            android:text="@string/quantity"
             tools:text="quantity" />
 
         <EditText
@@ -79,6 +80,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:hint="@string/insert"
             android:inputType="numberDecimal" />
     </LinearLayout>
 
@@ -88,12 +90,12 @@
         android:orientation="horizontal">
 
         <TextView
-            android:text="@string/supplier_name"
             android:id="@+id/book_supplier_name_text_view"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
+            android:text="@string/supplier_name"
             tools:text="supplier name" />
 
         <EditText
@@ -101,6 +103,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:hint="@string/insert"
             android:inputType="text" />
     </LinearLayout>
 
@@ -110,12 +113,12 @@
         android:orientation="horizontal">
 
         <TextView
-            android:text="@string/supplier_number"
             android:id="@+id/book_supplier_number_text_view"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
+            android:text="@string/supplier_number"
             tools:text="supplier number" />
 
         <EditText
@@ -123,9 +126,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:hint="@string/insert"
             android:inputType="number" />
 
     </LinearLayout>
-
-
 </LinearLayout>

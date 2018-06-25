@@ -12,7 +12,5 @@
     <item
         android:id="@+id/action_delete_sample_book"
         android:title="@string/delete_all_books"
-        app:showAsAction="never"/>
-
-
+        app:showAsAction="never" />
 </menu>

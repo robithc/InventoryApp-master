@@ -3,15 +3,14 @@
     <string name="editor_activity_title_add_book">add new book</string>
     <string name="insert_sample_book">insert sample data</string>
     <string name="delete_all_books">delete all books</string>
-    <string name="book_table_contains">The book table contains</string>
     <string name="action_save">save</string>
     <string name="action_delete">delete</string>
     <string name="title">title</string>
-    <string name="price">price</string>
+    <string name="price">price $</string>
     <string name="quantity">quantity</string>
     <string name="supplier_name">supplier name</string>
     <string name="supplier_number">supplier number</string>
     <string name="enter_book_details">enter book details here</string>
     <string name="counting"> books.\n\n</string>
-
+    <string name="insert">type here</string>
 </resources>

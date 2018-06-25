@@ -1,22 +1,19 @@
 package com.example.ro221d.inventoryapp;
 
-        import android.content.ContentValues;
-        import android.content.Intent;
-        import android.database.Cursor;
-        import android.database.sqlite.SQLiteDatabase;
-        import android.support.design.widget.FloatingActionButton;
-        import android.support.v7.app.AppCompatActivity;
-        import android.os.Bundle;
-        import android.view.Menu;
-        import android.view.MenuItem;
-        import android.view.View;
-        import android.widget.TextView;
+import android.content.ContentValues;
+import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 
-        import com.example.ro221d.inventoryapp.data.BookContract.BookEntry;
-
-
-        import com.example.ro221d.inventoryapp.data.BookContract;
-        import com.example.ro221d.inventoryapp.data.BookDbHelper;
+import com.example.ro221d.inventoryapp.data.BookContract.BookEntry;
+import com.example.ro221d.inventoryapp.data.BookDbHelper;
 
 public class MainActivity extends AppCompatActivity {
     private BookDbHelper mDbHelper;
@@ -44,7 +41,6 @@ public class MainActivity extends AppCompatActivity {
         super.onStart();
     }
 
-
     private void displayDatabaseInfo() {
         SQLiteDatabase db = mDbHelper.getReadableDatabase();
 
@@ -55,7 +51,6 @@ public class MainActivity extends AppCompatActivity {
                 BookEntry.COLUMN_BOOK_QUANTITY,
                 BookEntry.COLUMN_BOOK_SUPPLIER_NAME,
                 BookEntry.COLUMN_BOOK_SUPPLIER_PHONE_NUMBER};
-
 
         Cursor cursor = db.query(
                 BookEntry.TABLE_NAME,
@@ -68,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
         TextView displayTextView = (TextView) findViewById(R.id.display_table_text_view);
 
         try {
-            displayTextView.setText(R.string.book_table_contains + cursor.getCount() + " books.\n\n");
+            displayTextView.setText("Book table contents " + cursor.getCount() + " books.\n\n");
             displayTextView.append(BookEntry._ID + " -" +
                     BookEntry.COLUMN_BOOK_NAME + " - " +
                     BookEntry.COLUMN_BOOK_PRICE + " - " +
@@ -101,20 +96,17 @@ public class MainActivity extends AppCompatActivity {
         } finally {
             cursor.close();
         }
-
-
     }
 
-    private void insertBook () {
+    private void insertBook() {
         SQLiteDatabase db = mDbHelper.getWritableDatabase();
-
         ContentValues values = new ContentValues();
         values.put(BookEntry.COLUMN_BOOK_NAME, "Witcher");
         values.put(BookEntry.COLUMN_BOOK_PRICE, 5);
         values.put(BookEntry.COLUMN_BOOK_QUANTITY, 2);
         values.put(BookEntry.COLUMN_BOOK_SUPPLIER_NAME, "John");
         values.put(BookEntry.COLUMN_BOOK_SUPPLIER_PHONE_NUMBER, 555333111);
-        long newRowId = db.insert(BookEntry.TABLE_NAME,null, values);
+        long newRowId = db.insert(BookEntry.TABLE_NAME, null, values);
     }
 
     @Override
