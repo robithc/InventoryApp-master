@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.ro221d.inventoryapp.data.BookContract.BookEntry;
@@ -32,6 +33,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // Find the ListView which will be populated with the product data
+        ListView bookListView = (ListView) findViewById(R.id.list);
+        View emptyView = findViewById(R.id.empty_view);
+        bookListView.setEmptyView(emptyView);
+
         mDbHelper = new BookDbHelper(this);
         displayDatabaseInfo();
     }
@@ -48,7 +54,9 @@ public class MainActivity extends AppCompatActivity {
         String[] projection = {
                 BookEntry._ID,
                 BookEntry.COLUMN_BOOK_NAME,
+                BookEntry.COLUMN_BOOK_DESCRIPTION,
                 BookEntry.COLUMN_BOOK_PRICE,
+                BookEntry.COLUMN_BOOK_PICTURE,
                 BookEntry.COLUMN_BOOK_QUANTITY,
                 BookEntry.COLUMN_BOOK_SUPPLIER_NAME,
                 BookEntry.COLUMN_BOOK_SUPPLIER_PHONE_NUMBER};
@@ -67,13 +75,17 @@ public class MainActivity extends AppCompatActivity {
             displayTextView.setText("Book table contents " + cursor.getCount() + " books.\n\n");
             displayTextView.append(BookEntry._ID + " -" +
                     BookEntry.COLUMN_BOOK_NAME + " - " +
+                    BookEntry.COLUMN_BOOK_DESCRIPTION + " - " +
                     BookEntry.COLUMN_BOOK_PRICE + " - " +
+                    BookEntry.COLUMN_BOOK_PICTURE + " - " +
                     BookEntry.COLUMN_BOOK_QUANTITY + " - " +
                     BookEntry.COLUMN_BOOK_SUPPLIER_NAME + " - " +
                     BookEntry.COLUMN_BOOK_SUPPLIER_PHONE_NUMBER + "\n");
 
             int idColumnIndex = cursor.getColumnIndex(BookEntry._ID);
             int nameColumnIndex = cursor.getColumnIndex(BookEntry.COLUMN_BOOK_NAME);
+            int descriptionColumnIndex = cursor.getColumnIndex(BookEntry.COLUMN_BOOK_DESCRIPTION);
+            int pictureColumnIndex = cursor.getColumnIndex(BookEntry.COLUMN_BOOK_PICTURE);
             int priceColumnIndex = cursor.getColumnIndex(BookEntry.COLUMN_BOOK_PRICE);
             int quantityColumnIndex = cursor.getColumnIndex(BookEntry.COLUMN_BOOK_QUANTITY);
             int supplierNameColumnIndex = cursor.getColumnIndex(BookEntry.COLUMN_BOOK_SUPPLIER_NAME);
@@ -83,13 +95,17 @@ public class MainActivity extends AppCompatActivity {
                 int currentID = cursor.getInt(idColumnIndex);
                 String currentName = cursor.getString(nameColumnIndex);
                 int currentPrice = cursor.getInt(priceColumnIndex);
+                int currentPicture = cursor.getInt(pictureColumnIndex);
                 int currentQuantity = cursor.getInt(quantityColumnIndex);
                 String currentSupplierName = cursor.getString(supplierNameColumnIndex);
                 int currentSupplierNumber = cursor.getInt(supplierNumberColumnIndex);
+                String currentDescription = cursor.getString(descriptionColumnIndex);
                 displayTextView.append(("\n" + currentID + " - " +
                         currentName + " - " +
+                        currentDescription + " - " +
                         currentPrice + " - " +
                         currentQuantity + " - " +
+                        currentPicture + " - " +
                         currentSupplierName + " - " +
                         currentSupplierNumber
                 ));
@@ -103,8 +119,10 @@ public class MainActivity extends AppCompatActivity {
         SQLiteDatabase db = mDbHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(BookEntry.COLUMN_BOOK_NAME, "Witcher");
+        values.put(BookEntry.COLUMN_BOOK_DESCRIPTION, "Book by John Smith");
         values.put(BookEntry.COLUMN_BOOK_PRICE, 5);
         values.put(BookEntry.COLUMN_BOOK_QUANTITY, 2);
+        values.put(BookEntry.COLUMN_BOOK_PICTURE, 2);
         values.put(BookEntry.COLUMN_BOOK_SUPPLIER_NAME, "John");
         values.put(BookEntry.COLUMN_BOOK_SUPPLIER_PHONE_NUMBER, 555333111);
         long newRowId = db.insert(BookEntry.TABLE_NAME, null, values);

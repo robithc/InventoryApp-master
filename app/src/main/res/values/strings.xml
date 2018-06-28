@@ -13,4 +13,6 @@
     <string name="enter_book_details">enter book details here</string>
     <string name="counting"> books.\n\n</string>
     <string name="insert">type here</string>
+    <string name="empty_list">no books to show</string>
+    <string name="click_plus">click on + button to add a book</string>
 </resources>

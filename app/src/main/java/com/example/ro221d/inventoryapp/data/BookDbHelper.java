@@ -7,6 +7,8 @@ import android.util.Log;
 
 import com.example.ro221d.inventoryapp.data.BookContract.BookEntry;
 
+import static android.provider.Telephony.Mms.Part.TEXT;
+
 public class BookDbHelper extends SQLiteOpenHelper {
     public static final String LOG_TAG = BookDbHelper.class.getSimpleName();
 
@@ -35,8 +37,10 @@ public class BookDbHelper extends SQLiteOpenHelper {
         String SQL_CREATE_PRODUCT_TABLE = "CREATE TABLE " + BookEntry.TABLE_NAME + " ("
                 + BookEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + BookEntry.COLUMN_BOOK_NAME + " TEXT NOT NULL, "
+                + BookEntry.COLUMN_BOOK_DESCRIPTION + " TEXT NOT NULL, "
                 + BookEntry.COLUMN_BOOK_PRICE + " INTEGER NOT NULL, "
                 + BookEntry.COLUMN_BOOK_QUANTITY + " INTEGER NOT NULL, "
+                + BookEntry.COLUMN_BOOK_PICTURE + " TEXT NOT NULL, "
                 + BookEntry.COLUMN_BOOK_SUPPLIER_NAME + " TEXT NOT NULL, "
                 + BookEntry.COLUMN_BOOK_SUPPLIER_PHONE_NUMBER + " INTEGER );";
 
