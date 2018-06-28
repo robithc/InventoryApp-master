@@ -15,8 +15,8 @@ import com.example.ro221d.inventoryapp.data.BookContract;
 
 public class BookCursorAdapter extends CursorAdapter {
 
-    public BookCursorAdapter(Context context, Cursor c, int flags) {
-        super(context, c, flags);
+    public BookCursorAdapter(Context context, Cursor c) {
+        super(context, c, 0 /* flags */);
     }
 
 
@@ -44,7 +44,7 @@ public class BookCursorAdapter extends CursorAdapter {
         String bookName = cursor.getString(titleColumnIndex);
         String bookDescription = cursor.getString(descriptionColumnIndex);
         String bookPrice = cursor.getString(priceColumnIndex);
-        final int bookQuantity = cursor.getInt(quantityColumnIndex);
+        String bookQuantity = cursor.getString(quantityColumnIndex);
         String pictureUriString = cursor.getString(pictureColumnIndex);
         Uri bookImage = Uri.parse(pictureUriString);
         // If the product model is empty string or null, then hide TextView

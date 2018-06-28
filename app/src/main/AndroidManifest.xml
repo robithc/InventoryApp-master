@@ -26,6 +26,11 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".EditorActivity" />
         </activity>
+
+        <provider
+            android:name=".data.BookProvider"
+            android:authorities="com.example.android.product"
+            android:exported="false" />
     </application>
 
 </manifest>
