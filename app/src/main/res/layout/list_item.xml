@@ -48,10 +48,12 @@
         android:orientation="vertical">
 
         <TextView
+            android:text="@string/price_header"
             android:id="@+id/price_header"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="4dp"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
             tools:text="price" />
 
         <TextView
@@ -59,9 +61,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="4dp"
-            tools:text="20.5 $" />
+            tools:text="20.5 " />
 
 
+        <TextView
+            android:id="@+id/price_quantity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:text="@string/quantity_header"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+            tools:text="@string/quantity_header" />
         <TextView
             android:id="@+id/book_quantity"
             android:layout_width="wrap_content"

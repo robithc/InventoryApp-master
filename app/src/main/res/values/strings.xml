@@ -70,6 +70,8 @@
 
     <!-- Label for stock -->
     <string name="in_stock">In stock:</string>
+    <string name="price_header">price</string>
+    <string name="quantity_header">quantity</string>
 
 
 </resources>
