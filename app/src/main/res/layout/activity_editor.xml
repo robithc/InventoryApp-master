@@ -158,6 +158,7 @@
     </LinearLayout>
 
     <ImageView
+        android:id="@+id/book_photo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -165,23 +166,34 @@
         android:minWidth="100dp"
         android:src="@drawable/secret_garden" />
 
+    <TextView
+        android:id="@+id/tap_photo_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/tap_photo"
+        tools:text="tap to add photo" />
+
     <LinearLayout
+        android:layout_margin="4dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:orientation="horizontal">
 
-        <ImageButton
+        <Button
+            android:id="@+id/reject_book_button"
+            android:text="@string/reject_book_button"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:src="@drawable/baseline_shopping_cart_black_36dp" />
+            android:layout_weight="1" />
 
-        <ImageButton
+        <Button
+            android:id="@+id/add_book_button"
+            android:text="@string/add_book_button"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:src="@drawable/baseline_shopping_cart_black_36dp" />
+            android:layout_weight="1" />
 
 
     </LinearLayout>
