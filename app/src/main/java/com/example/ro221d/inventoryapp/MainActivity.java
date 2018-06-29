@@ -107,18 +107,6 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         Uri newUri = getContentResolver().insert(BookEntry.CONTENT_URI, values);
     }
 
-//    private void insertBook() {
-//        SQLiteDatabase db = mDbHelper.getWritableDatabase();
-//        ContentValues values = new ContentValues();
-//        values.put(BookEntry.COLUMN_BOOK_NAME, "Witcher");
-//        values.put(BookEntry.COLUMN_BOOK_DESCRIPTION, "Book by John Smith");
-//        values.put(BookEntry.COLUMN_BOOK_PRICE, 5);
-//        values.put(BookEntry.COLUMN_BOOK_QUANTITY, 2);
-//        values.put(BookEntry.COLUMN_BOOK_PICTURE, 2);
-//        values.put(BookEntry.COLUMN_BOOK_SUPPLIER_NAME, "John");
-//        values.put(BookEntry.COLUMN_BOOK_SUPPLIER_PHONE_NUMBER, 555333111);
-//        long newRowId = db.insert(BookEntry.TABLE_NAME, null, values);
-//    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

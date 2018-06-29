@@ -60,8 +60,7 @@
         android:layout_alignParentRight="true"
         android:layout_gravity="bottom"
         android:layout_margin="16dp"
-        android:clickable="true"
-        android:focusable="true"
+
         app:srcCompat="@android:drawable/ic_input_add" />
 
 </RelativeLayout>
