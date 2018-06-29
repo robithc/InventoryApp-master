@@ -29,7 +29,7 @@
 
         <provider
             android:name=".data.BookProvider"
-            android:authorities="com.example.android.product"
+            android:authorities="com.example.android.book"
             android:exported="false" />
     </application>
 

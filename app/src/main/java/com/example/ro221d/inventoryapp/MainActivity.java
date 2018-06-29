@@ -5,11 +5,9 @@ import android.content.ContentUris;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
@@ -21,10 +19,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import com.example.ro221d.inventoryapp.data.BookContract.BookEntry;
-import com.example.ro221d.inventoryapp.data.BookDbHelper;
 
 public class MainActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor> {
 
@@ -78,7 +74,6 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
             }
         });
 
-        //displayDatabaseInfo();
 
         getSupportLoaderManager().initLoader(PRODUCT_LOADER, null, this);
     }
@@ -96,11 +91,11 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         // Create a ContentValues object where column names are the keys,
         // and example's product attributes are the values.
         ContentValues values = new ContentValues();
-        values.put(BookEntry.COLUMN_BOOK_NAME, "123");
-        values.put(BookEntry.COLUMN_BOOK_DESCRIPTION, "opis");
-        values.put(BookEntry.COLUMN_BOOK_PRICE, 5);
+        values.put(BookEntry.COLUMN_BOOK_NAME, "Witcher");
+        values.put(BookEntry.COLUMN_BOOK_DESCRIPTION, "Fantasy book by A.Sapkowski");
+        values.put(BookEntry.COLUMN_BOOK_PRICE, 50.99);
         values.put(BookEntry.COLUMN_BOOK_QUANTITY, 7);
-        values.put(BookEntry.COLUMN_BOOK_PICTURE, 5);
+        values.put(BookEntry.COLUMN_BOOK_PICTURE, String.valueOf(imageUri));
         values.put(BookEntry.COLUMN_BOOK_SUPPLIER_NAME, "adam");
         values.put(BookEntry.COLUMN_BOOK_SUPPLIER_PHONE_NUMBER, 5555);
 
@@ -172,7 +167,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     }
 
     @Override
-    public void onLoadFinished(@NonNull Loader<Cursor> loader, Cursor data) {
+    public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
         mCursorAdapter.swapCursor(data);
     }
 

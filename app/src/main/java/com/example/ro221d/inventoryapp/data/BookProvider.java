@@ -29,40 +29,35 @@ public class BookProvider extends ContentProvider {
      * UriMatcher object to match a content URI to a corresponding code.
      * The input passed into the constructor represents the code to return for the root URI.
      * It's common to use NO_MATCH as the input for this case.
-     */
-    private static final UriMatcher sUriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
-
-    // Static initializer. This is run the first time anything is called from this class.
-    static {
-        // The calls to addURI() go here, for all of the content URI patterns that the provider
-        // should recognize. All paths added to the UriMatcher have a corresponding code to return
-        // when a match is found.
-
-        // The content URI of the form "content://com.example.android.pets/pets" will map to the
-        // integer code {@link #PETS}. This URI is used to provide access to MULTIPLE rows
-        // of the pets table.
-        sUriMatcher.addURI(BookContract.CONTENT_AUTHORITY, BookContract.PATH_BOOKS, BOOKS);
-
-        // The content URI of the form "content://com.example.android.pets/pets/#" will map to the
-        // integer code {@link #PET_ID}. This URI is used to provide access to ONE single row
-        // of the pets table.
-        //
-        // In this case, the "#" wildcard is used where "#" can be substituted for an integer.
-        // For example, "content://com.example.android.pets/pets/3" matches, but
-        // "content://com.example.android.pets/pets" (without a number at the end) doesn't match.
-        sUriMatcher.addURI(BookContract.CONTENT_AUTHORITY, BookContract.PATH_BOOKS + "/#", BOOK_ID);
-    }
+     *
+     * */
 
     /**
      * Database helper object
      */
     private BookDbHelper mDbHelper;
 
+
     @Override
     public boolean onCreate() {
         mDbHelper = new BookDbHelper(getContext());
         return true;
     }
+
+
+    private static final UriMatcher sUriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
+
+    // Static initializer. This is run the first time anything is called from this class.
+    static {
+
+        sUriMatcher.addURI(BookContract.CONTENT_AUTHORITY, BookContract.PATH_BOOKS, BOOKS);
+
+        sUriMatcher.addURI(BookContract.CONTENT_AUTHORITY, BookContract.PATH_BOOKS + "/#", BOOK_ID);
+    }
+
+
+
+
 
     @Override
     public Cursor query(Uri uri, String[] projection, String selection, String[] selectionArgs,
@@ -132,35 +127,29 @@ public class BookProvider extends ContentProvider {
         // Check that the name is not null
         String name = values.getAsString(BookContract.BookEntry.COLUMN_BOOK_NAME);
         if (name == null) {
-            throw new IllegalArgumentException("Pet requires a name");
+            throw new IllegalArgumentException("Product requires a name");
         }
 
-//        // Check that the gender is valid
-//        Integer gender = values.getAsInteger(PetEntry.COLUMN_PET_GENDER);
-//        if (gender == null || !PetEntry.isValidGender(gender)) {
-//            throw new IllegalArgumentException("Pet requires valid gender");
-//        }
 
-        // If the weight is provided, check that it's greater than or equal to 0 kg
-        Integer price = values.getAsInteger(BookContract.BookEntry.COLUMN_BOOK_PRICE);
-        if (price != null && price < 0) {
-            throw new IllegalArgumentException("Pet requires valid weight");
+        // If the quantity is provided, check that it's greater than or equal to 0 kg
+        Integer quantity = values.getAsInteger(BookContract.BookEntry.COLUMN_BOOK_QUANTITY);
+        if (quantity != null && quantity < 0) {
+            throw new IllegalArgumentException("Product requires valid quantity");
         }
 
-        // No need to check the breed, any value is valid (including null).
+        // No need to check the model, any value is valid (including null).
 
         // Get writeable database
         SQLiteDatabase database = mDbHelper.getWritableDatabase();
 
-        // Insert the new pet with the given values
+        // Insert the new product with the given values
         long id = database.insert(BookContract.BookEntry.TABLE_NAME, null, values);
         // If the ID is -1, then the insertion failed. Log an error and return null.
         if (id == -1) {
             Log.e(LOG_TAG, "Failed to insert row for " + uri);
             return null;
         }
-
-        // Notify all listeners that the data has changed for the pet content URI
+        // Notify all listeners that the data has changed for the product content URI
         getContext().getContentResolver().notifyChange(uri, null);
 
         // Return the new URI with the ID (of the newly inserted row) appended at the end

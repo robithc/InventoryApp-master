@@ -20,7 +20,7 @@ public final class BookContract {
      * Building URI
      */
     // authority
-    public static final String CONTENT_AUTHORITY = "com.example.android.product";
+    public static final String CONTENT_AUTHORITY = "com.example.android.book";
     // base content URI
     public static final Uri BASE_CONTENT_URI = Uri.parse("content://" + CONTENT_AUTHORITY);
     // path to table name
