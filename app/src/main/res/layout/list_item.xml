@@ -13,72 +13,80 @@
         android:layout_height="match_parent"
         android:layout_margin="4dp"
         android:layout_weight="2"
-        android:scaleType="fitXY"
+        android:scaleType="centerInside"
         android:src="@drawable/secret_garden" />
 
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_margin="4dp"
-        android:layout_weight="3"
-        android:orientation="vertical">
+        android:layout_weight="5">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:layout_weight="3"
+            android:minWidth="50dp"
+            android:orientation="vertical">
 
 
-        <TextView
-            android:id="@+id/book_title"
+            <TextView
+                android:id="@+id/book_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                tools:text="Secret Garden" />
+
+            <TextView
+                android:maxLines="3"
+                android:id="@+id/book_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Adventure book by John Smith" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="4dp"
-            tools:text="Secret Garden" />
+            android:layout_margin="4dp"
+            android:orientation="vertical">
 
-        <TextView
-            android:maxLines="3"
-            android:id="@+id/book_description"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:text="Adventure book by John Smith" />
+            <TextView
+                android:text="@string/price_header"
+                android:id="@+id/price_header"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+                tools:text="price" />
 
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="4dp"
-        android:orientation="vertical">
-
-        <TextView
-            android:text="@string/price_header"
-            android:id="@+id/price_header"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="4dp"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
-            tools:text="price" />
-
-        <TextView
-            android:id="@+id/book_price"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="4dp"
-            tools:text="20.5 " />
+            <TextView
+                android:id="@+id/book_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                tools:text="20.5 " />
 
 
-        <TextView
-            android:id="@+id/price_quantity"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="4dp"
-            android:text="@string/quantity_header"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
-            tools:text="@string/quantity_header" />
-        <TextView
-            android:id="@+id/book_quantity"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:text="22" />
+            <TextView
+                android:id="@+id/price_quantity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:text="@string/quantity_header"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+                tools:text="@string/quantity_header" />
+
+            <TextView
+                android:id="@+id/book_quantity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="22" />
 
 
+        </LinearLayout>
     </LinearLayout>
 
 
@@ -89,7 +97,7 @@
         android:layout_height="match_parent"
         android:layout_gravity="center_vertical"
         android:layout_weight="1"
-        android:minWidth="60dp"
+        android:minWidth="30dp"
         android:src="@drawable/baseline_shopping_cart_black_36dp" />
 
 

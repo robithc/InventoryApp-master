@@ -12,7 +12,6 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.app.NavUtils;
@@ -38,6 +37,7 @@ public class EditorActivity extends AppCompatActivity implements
     /**
      * Identifier for the product data loader
      */
+    private static final int PICK_IMAGE_REQUEST = 0;
     private static final int EXISTING_BOOK_LOADER = 0;
     boolean hasRequiredValues = false;
     private Uri mImageUri;
@@ -64,7 +64,7 @@ public class EditorActivity extends AppCompatActivity implements
     };
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_editor);
 
@@ -160,7 +160,7 @@ public class EditorActivity extends AppCompatActivity implements
             intent.addCategory(Intent.CATEGORY_OPENABLE);
         }
         intent.setType(getString(R.string.intent_type));
-        startActivityForResult(Intent.createChooser(intent, getString(R.string.select_image)), 0);
+        startActivityForResult(Intent.createChooser(intent, getString(R.string.select_image)), PICK_IMAGE_REQUEST);
     }
 
     @Override
@@ -394,7 +394,7 @@ public class EditorActivity extends AppCompatActivity implements
     }
 
     @Override
-    public void onLoadFinished(@NonNull Loader<Cursor> loader, Cursor cursor) {
+    public void onLoadFinished(Loader<Cursor> loader, Cursor cursor) {
         if (cursor == null || cursor.getCount() < 1) {
             return;
         }
@@ -436,7 +436,7 @@ public class EditorActivity extends AppCompatActivity implements
     }
 
     @Override
-    public void onLoaderReset(@NonNull Loader<Cursor> loader) {
+    public void onLoaderReset(Loader<Cursor> loader) {
 // If the loader is invalidated, clear out all the data from the input fields.
         mBookNameEditText.setText("");
         mBookDescriptionEditText.setText("");

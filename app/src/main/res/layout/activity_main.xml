@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="8dp"
+    android:layout_margin="@dimen/margin"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
@@ -44,12 +44,6 @@
 
 
     </LinearLayout>
-    <TextView
-        android:id="@+id/display_table_text_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="24dp"
-        tools:text="display table here" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
@@ -60,7 +54,6 @@
         android:layout_alignParentRight="true"
         android:layout_gravity="bottom"
         android:layout_margin="16dp"
-
         app:srcCompat="@android:drawable/ic_input_add" />
 
 </RelativeLayout>

@@ -23,6 +23,7 @@
         <activity
             android:name=".EditorActivity"
             android:label="@string/editor_activity_title_add_book"
+            android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme">
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
